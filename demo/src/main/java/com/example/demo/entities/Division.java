@@ -1,7 +1,9 @@
 package com.example.demo.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
@@ -12,6 +14,8 @@ import java.util.Set;
 @Table(name = "divisions")
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 
 public class Division {
 
@@ -32,10 +36,6 @@ public class Division {
     @ManyToOne
     @JoinColumn(name = "country_id", nullable = false)
     private Country country;
-
-    @Column(name = "country_id", insertable = false, updatable = false )
-    private Long country_id;
-
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "division")
     private Set<Customer> customers = new HashSet<>();

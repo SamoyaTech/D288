@@ -2,6 +2,7 @@ package com.example.demo.entities;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -16,6 +17,7 @@ import java.util.Set;
 @Table(name = "vacations")
 @Getter
 @Setter
+@NoArgsConstructor
 
 public class Vacation {
 
@@ -34,8 +36,8 @@ public class Vacation {
     @Column(name = "travel_fare_price", nullable = false)
     private BigDecimal travel_price;
 
-    @Column(name = "image_URL", nullable = false)
-    private String image_url;
+    @Column(name = "image_url", nullable = false)
+    private String image_URL;
 
     @Column(name = "create_date")
     @CreationTimestamp
@@ -45,7 +47,7 @@ public class Vacation {
     @UpdateTimestamp
     private Date last_update;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "vacation")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "vacation")
     private Set<Excursion> excursions = new HashSet<>();
 
 

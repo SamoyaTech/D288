@@ -1,6 +1,7 @@
 package com.example.demo.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
@@ -15,7 +16,7 @@ import java.util.Set;
 @Table(name = "excursions")
 @Getter
 @Setter
-
+@AllArgsConstructor
 public class Excursion {
 
     @Id
