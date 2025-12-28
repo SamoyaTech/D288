@@ -33,6 +33,11 @@ public class CheckoutServiceImpl implements CheckoutService {
         Cart cart = purchase.getCart();
         Customer customer = purchase.getCustomer();
 
+        //cart must not be null or empty
+        if (cart == null || cart.getCartItems() == null || cart.getCartItems().isEmpty()) {
+            return new  PurchaseResponse("Error: Cart is empty");
+        }
+
         //generate tracking number
         String orderTrackingNumber = generateOrderTrackingNumber();
 
