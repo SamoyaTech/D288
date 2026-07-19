@@ -1,4 +1,4 @@
-# Vacation Booking App - Spring Boot Backend
+# Vacation Booking Website - Spring Boot Backend
 
 ## Overview
 
